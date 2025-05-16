@@ -24,16 +24,18 @@ if(len(S) == 1):
 elif(S == S[::-1]):
     result = S
 else:
+    # length = len(S)-1, len(S)-2, ... , 1
     for length in range(len(S) - 1, 0, -1):
+        # i = 0, 1, ... , len(S)-length
         for i in range(len(S) - length + 1):
             tmp = S[i:(length + i)]
             #print(f"{i}文字目から{length}文字 : {tmp}")
             if(tmp == tmp[::-1]):
                 result = tmp
-                break
+                break   # BREAK inner loop
         else:
-            continue
-        break
+            continue   # Finish inner loop without BREAK
+        break   # BREAK outer loop
 
 
 print(result)
